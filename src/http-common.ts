@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "http://localhost:8000/api/todos",
+  baseURL: "https://back-skjx.onrender.com/api/todos",
   headers: {
     "Content-type": "application/json"
   }
