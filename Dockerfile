@@ -2,10 +2,13 @@ FROM node:18
 
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm install
+ENV PATH /app/node_modules/.bin:$PATH
 
-COPY . .
-EXPOSE 4000
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm install --silent
+RUN npm install react-scripts@3.4.1 -g --silent
+
+COPY . ./
 
 CMD ["npm", "start"]
